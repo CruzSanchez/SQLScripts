@@ -53,3 +53,27 @@ WHERE MiddleInitial IS NULL AND Title = 'geek squad';
 SELECT * FROM products
 WHERE StockLevel BETWEEN 500 AND 1200
 ORDER BY Price ASC, StockLevel DESC;
+
+-- joins
+SELECT * FROM sales;
+SELECT * FROM products;
+
+-- Inner Join
+SELECT SalesID, sales.ProductID AS 'Sales Prod ID',
+ Quantity, products.ProductID, Name, Price FROM sales
+INNER JOIN products
+ON sales.ProductID = products.ProductID;
+
+-- Left Join
+SELECT SalesID, sales.ProductID AS 'Sales Prod ID',
+ Quantity, products.ProductID, Name, Price FROM sales -- < LEFT TABLE
+LEFT JOIN products -- < RIGHT TABLE
+ON sales.ProductID = products.ProductID;
+
+-- Right Join .1% OF THE TIME
+SELECT SalesID, sales.ProductID AS 'Sales Prod ID',
+ Quantity, products.ProductID, Name, Price FROM sales
+RIGHT JOIN products
+ON sales.ProductID = products.ProductID;
+
+-- Another change
